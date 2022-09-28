@@ -1,0 +1,82 @@
+@import url("https://fonts.googleapis.com/css2?family=Karla:wght@200;400&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Karla", sans-serif;
+  font-weight: 400;
+  margin: 0;
+  padding-top: 3rem;
+  background-color: #363644;
+}
+.main-container {
+  width: 600px;
+  height: 600px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.add {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  background-color: #4b4f9a;
+  border: none;
+  border-radius: 10px;
+  padding: 2rem 2rem;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: transform 0.2s ease;
+}
+.add:hover {
+  background-color: #424586;
+}
+.add:active {
+  transform: scale(0.9);
+}
+
+.note {
+  background-color: white;
+  box-shadow: 0 0 10px 4px rgba(0, 0, 0, 0.1);
+  margin: 30px 20px;
+  height: 200px;
+  width: 200px;
+}
+
+.note .options {
+  background-color: #4b4f9a;
+  display: flex;
+  justify-content: flex-end;
+  padding: 0.5rem;
+}
+
+.note .tools button {
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-left: 0.5rem;
+}
+
+.note textarea {
+  outline: none;
+  font-family: inherit;
+  font-size: 1.2rem;
+  border: none;
+  height: 200px;
+  width: 100%;
+  padding: 20px;
+}
+
+.main {
+  padding: 20px;
+}
+
+.hidden {
+  display: none;
+}
