@@ -10,9 +10,9 @@ if (notes) {
 addBtn.addEventListener("click", () => addNewNote());
 
 function addNewNote(text = "") {
-  const note = document.createElement("div");
-  note.classList.add("note");
-  note.innerHTML = `
+  const notepad = document.createElement("div");
+  notepad.classList.add("notepad");
+  notepad.innerHTML = `
     <div class="options">
         <select><option>Errand</option>
         <option>Work</option>
@@ -25,16 +25,16 @@ function addNewNote(text = "") {
       <textarea class="${text ? "hidden" : ""}">
       </textarea>
       `;
-  const editBtn = note.querySelector(".edit");
-  const deleteBtn = note.querySelector(".delete");
-  const main = note.querySelector(".main");
-  const textArea = note.querySelector("textarea");
+  const editBtn = notepad.querySelector(".edit");
+  const deleteBtn = notepad.querySelector(".delete");
+  const main = notepad.querySelector(".main");
+  const textArea = notepad.querySelector("textarea");
 
   textArea.value = text;
   main.innerHTML = marked.parse(text);
 
   deleteBtn.addEventListener("click", () => {
-    note.remove();
+    notepad.remove();
     updateLS();
   });
   editBtn.addEventListener("click", () => {
@@ -49,8 +49,8 @@ function addNewNote(text = "") {
 
     updateLS();
   });
-
-  contentDiv.appendChild(note);
+  notepad.classList.add("here");
+  contentDiv.appendChild(notepad);
 }
 function updateLS() {
   const notesText = document.querySelectorAll("textarea");

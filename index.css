@@ -2,6 +2,7 @@
 
 * {
   box-sizing: border-box;
+  margin: 0;
 }
 
 body {
@@ -11,11 +12,91 @@ body {
   padding-top: 3rem;
   background-color: #363644;
 }
+
+h1 {
+  font-size: 80px;
+  text-align: center;
+  color: #cee7fd;
+  filter: drop-shadow(20px 20px 2px rgba(0, 0, 0, 0.2));
+}
+#title {
+  width: 100%;
+  height: 300px;
+  margin: 0 auto;
+}
+#post-it {
+  position: relative;
+  top: 30%;
+}
+
+#close-it {
+  position: relative;
+  top: -20%;
+}
+
+h2 {
+  position: relative;
+  /* top: 150px; */
+  color: #cee7fd;
+  max-width: 400px;
+  text-align: center;
+  margin: 0 auto;
+}
+#arrow-up {
+  position: relative;
+  color: #cee7fd;
+  font-size: 150px;
+  top: -40%;
+  left: 24%;
+  animation: arrowRotate 3s infinite linear;
+  filter: drop-shadow(20px 20px 2px rgba(0, 0, 0, 0.2));
+}
+
+#arrow-out {
+  position: relative;
+  color: #cee7fd;
+  font-size: 150px;
+  top: -80%;
+  right: -80%;
+  transform: rotate(50deg);
+  animation: arrowMoveOut 3s infinite linear;
+  filter: drop-shadow(20px 20px 2px rgba(0, 0, 0, 0.2));
+}
+
+@keyframes arrowMoveOut {
+  0% {
+    transform: translate(-20px) rotate(50deg);
+  }
+
+  50% {
+    transform: translate(0px) rotate(50deg);
+  }
+  100% {
+    transform: translate(-20px) rotate(50deg);
+  }
+}
+
+@keyframes arrowRotate {
+  0% {
+    transform: translate(-20px) rotate(280deg);
+  }
+
+  50% {
+    transform: translate(-10px) rotate(290deg);
+  }
+  100% {
+    transform: translate(-20px) rotate(280deg);
+  }
+}
+
 .main-container {
-  width: 600px;
-  height: 600px;
+  position: relative;
+  top: 100px;
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 50px auto;
 }
 
 .add {
@@ -26,7 +107,7 @@ body {
   border: none;
   border-radius: 10px;
   padding: 2rem 2rem;
-  color: white;
+  color: #cee7fd;
   font-size: 20px;
   cursor: pointer;
   text-transform: uppercase;
@@ -39,31 +120,49 @@ body {
   transform: scale(0.9);
 }
 
-.note {
-  background-color: white;
+.notepad {
+  background-color: #cee7fd;
   box-shadow: 0 0 10px 4px rgba(0, 0, 0, 0.1);
   margin: 30px 20px;
   height: 200px;
   width: 200px;
+  animation: slideIn 2s forwards;
 }
 
-.note .options {
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-10%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+}
+.notepad {
+  white-space: wrap;
+}
+.notepad .options {
   background-color: #4b4f9a;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   padding: 0.5rem;
 }
 
-.note .tools button {
+.notepad .options button,
+.notepad .options select {
   background-color: transparent;
   border: none;
-  color: #fff;
+  color: #cee7fd;
   cursor: pointer;
   font-size: 1rem;
-  margin-left: 0.5rem;
 }
 
-.note textarea {
+.notepad .options option {
+  background-color: #4b4f9a;
+}
+
+.notepad textarea {
   outline: none;
   font-family: inherit;
   font-size: 1.2rem;
@@ -71,12 +170,67 @@ body {
   height: 200px;
   width: 100%;
   padding: 20px;
+  background-color: #cee7fd;
+  color: #363644;
 }
 
 .main {
   padding: 20px;
 }
+.main p {
+  max-width: 200px;
+  max-height: 200px;
+  color: #363644;
+  overflow: hidden;
+  overflow-wrap: break-word;
+}
 
 .hidden {
   display: none;
+}
+
+@media (max-width: 1000px) {
+  #title {
+    height: 200px;
+  }
+  #post-it {
+    top: 45%;
+  }
+  #close-it {
+    top: 5%;
+  }
+  #post-it,
+  #close-it {
+    font-size: 50px;
+  }
+  #arrow-up,
+  #arrow-out {
+    font-size: 70px;
+  }
+
+  #arrow-up {
+    position: relative;
+    color: #cee7fd;
+    top: -20%;
+    left: 40%;
+    transform: rotate(20deg);
+  }
+
+  #arrow-out {
+    position: relative;
+    color: #cee7fd;
+    top: -70%;
+    right: -80%;
+    transform: rotate(30deg);
+  }
+}
+
+@media (max-width: 450px) {
+  #arrow-up {
+    position: relative;
+    color: #cee7fd;
+    top: 0%;
+    left: 15%;
+    transform: rotate(20deg);
+  }
 }
